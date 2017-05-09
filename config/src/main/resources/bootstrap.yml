@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: config   #在Eruka中注册的服务名为config
+  #profiles:
+    #active: native  #配置服务器使用本地配置 默认为git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jeff-leo/config-repo
+
+
+eureka:
+  instance:
+    non-secure-port: ${server.port:8001}
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8000}/eureka/
